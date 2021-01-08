@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj książkę</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
+
+    <label for="book_name">Tytuł książki</label>
+    <input type="text" th:field="*{book_name}" id="book_name" placeholder="Tytuł książki">
+    <br><br>
+
+    <label for="book_author">Name</label>
+    <input type="text" th:field="*{book_author}" id="book_author" placeholder="Autor">
+    <br><br>
+
+    <label for="book_genre">Gatunek książki</label>
+    <input type="text" th:field="*{book_genre}" id="book_genre" placeholder="Gatunek">
+    <br><br>
+
+    <label for="book_act">Stan książi</label>
+    <input type="text" th:field="*{book_act}" id="book_act" placeholder="Stan książki">
+    <br><br>
+
+
+    <input type="submit" value="Dodaj książkę">
+</form>
+
+</body>
+</html>
