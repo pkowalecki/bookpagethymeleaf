@@ -2,7 +2,7 @@ package pl.kowalecki.bookpagethymeleaf.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.kowalecki.bookpagethymeleaf.BookRepo;
+import pl.kowalecki.bookpagethymeleaf.Repository.BookRepo;
 import pl.kowalecki.bookpagethymeleaf.Model.Book;
 
 import java.util.List;

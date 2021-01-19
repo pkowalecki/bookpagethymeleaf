@@ -1,0 +1,18 @@
+
+#footer {
+    position: absolute;
+    width: 100%;
+    color:white;
+}
+
+.footer-info {
+    text-align:center;
+    color:white;
+    font-size: large;
+}
+
+
+.footer-text {
+    text-align:left;
+    color:white;
+}

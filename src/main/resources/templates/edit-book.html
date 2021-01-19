@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link th:rel="stylesheet" th:href="@{assets/select2-develop/dist/css/select2.css}"/>
+    <link th:rel="stylesheet" th:href="@{assets/select2-bootstrap4-theme-master/dist/select2-bootstrap4.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/add-book.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Edytuj książkę</title>
+</head>
+
+<body>
+<div class="contact1">
+    <div class="container-contact1">
+        <div class="contact1-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+            Here you have your random image<br>
+            <img th:src="${newsImage}" width="350" height="200"/>
+        </div>
+        <form class="contact1-form validate-form" action="#" th:action="@{/editBook/{id}(id=${id})}" th:object="${book}" method="post">
+<span class="contact1-form-title">
+Edytuj książkę
+</span>
+
+            <div class="wrap-input1 validate-input" data-validate="Wypełnij pole">
+                <input id ="book_name" th:field="*{book_name}"class="input1" type="text" name="book_name" placeholder="Tytuł książki">
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="wrap-input1 validate-input" data-validate="Wypełnij pole">
+                <input id ="book_author" th:field="*{book_author}"class="input1" type="text" name="book_author" placeholder="Autor książki">
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="wrap-input1 validate-input" data-validate="Wypełnij pole">
+                <input id ="book_genre" th:field="*{book_genre}"class="input1" type="text" name="book_genre" placeholder="Gatunek książki">
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="wrap-input1 validate-input" data-validate="Wypełnij pole">
+                <input id ="book_act" th:field="*{book_act}"class="input1" type="text" name="book_act" placeholder="Stan książki">
+                <span class="shadow-input1"></span>
+            </div>
+            <div class="container-contact1-form-btn">
+
+                <input type="submit" value="Edytuj książkę" class="btn btn-info">
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</form>
+</div>
+</body>
+</html>

@@ -17,6 +17,9 @@
     <properties>
         <java.version>11</java.version>
         <maven.test.skip>true</maven.test.skip>
+        <bootstrap.version>4.0.0-2</bootstrap.version>
+        <webjars-locator.version>0.30</webjars-locator.version>
+        <lombok.version>1.18.2</lombok.version>
     </properties>
 
     <dependencies>
@@ -35,6 +38,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${bootstrap.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${webjars-locator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

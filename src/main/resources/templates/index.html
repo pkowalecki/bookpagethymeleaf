@@ -2,38 +2,78 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="StyleSheet.css"/>
+    <link th:rel="stylesheet" th:href="@{assets/select2-develop/dist/css/select2.css}"/>
+    <link th:rel="stylesheet" th:href="@{assets/select2-bootstrap4-theme-master/dist/select2-bootstrap4.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"  th:href="@{StyleSheet.css}"/>
+    <link rel="stylesheet" type="text/css"  th:href="@{footer.css}"/>
 
     <meta charset="UTF-8">
-    <title>Witaj</title>
+    <title>Lista książek</title>
 </head>
+<header>
+    <div class="header" id="gradient">
+        <div class="header-text">Lista książek</div>
+    </div>
+</header>
 <body>
-<div class="tabela">
-        <table class="table">
-            <tr style="text-align: center">
-                <th>Tytuł</th>
-                <th>Autor</th>
-                <th>Gatunek</th>
-                <th>Stan</th>
-            </tr>
 
-         <tbody>
-
-         <tr th:each="book: ${book}">
-
-             <td th:text="${book.book_name}"></td>
-
-             <td th:text="${book.book_author}"></td>
-
-             <td th:text="${book.book_genre}"></td>
-
-             <td th:text="${book.book_act}"></td>
-
-         </tr>
-         </tbody>
-        </table>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" th:onclick="closeNav()">&times;</a>
+    <a href="/dodaj">Dodaj książkę</a>
 </div>
+
+<div id="main">
+    <button class="openbtn" th:onclick="openNav()">&#9776; Menu</button>
+</div>
+<div id="container">
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th scope="col">Tytuł</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Gatunek</th>
+            <th scope="col">Stan</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="book: ${book}">
+
+            <td th:text="${book.book_name}"></td>
+
+            <td th:text="${book.book_author}"></td>
+
+            <td th:text="${book.book_genre}"></td>
+
+            <td th:text="${book.book_act}"></td>
+
+            <td><a th:href="@{/edytujKsiazke/{id}(id=${book.id})}" type="button" class="btn btn-info">Edytuj</a></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{javaScriptBook.js}"></script>
 </body>
+<div class="footer" id="gradient">
+    <div class="footer-info">
+        Your news for now:
+    </div>
+    <div class="footer-text">
+        <b th:text="${news}"></b>
+    </div>
+
+</div>
 </html>
