@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-env
+  name: deploy-env
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-env
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-env
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/labproj04/bookpagethymeleaf:latest
+        name: bookpagethymeleaf
+        resources: {}
+        envFrom:
+        - configMapRef:
+            name: bookpagethymeleaf-cmap
+        - secretRef:
+            name: bookpagethymeleaf-secret
+
+status: {}
